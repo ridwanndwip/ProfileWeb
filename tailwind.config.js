@@ -5,7 +5,23 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    screens: {
+      'xs': '420px',
+      's': '576px',
+      'm': '768px',
+      'l': '992px',
+      'xl': '1280px',
+      'hd': '1680px',
+    },
+    extend: {
+      colors: {
+        'light': '#FAF6F0',
+        'dark' : '#000000',
+      },
+      fontFamily: {
+        montserrat : ["Montserrat",'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

@@ -55,3 +55,17 @@ body, html{
   height: 100%; 
   scroll-behavior: smooth; 
 }
+
+body{
+  background-color: #FAF6F0;
+  color: #000000;
+  font-family: "Sorts Mill Goudy", serif;
+  font-optical-sizing: auto;
+}
+
+/* .activeNav{
+  display: block;
+  Ukuran SVG saat link aktif
+  width: 35px;
+  height: 35px;
+} */

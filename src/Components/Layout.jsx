@@ -1,36 +1,75 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import { NavLink } from 'react-router-dom'
+import Maps from './../img/maps.png'
 
-const NavComp = ({title, page}) => {
-  return(
-    <>
-        <li>
-          <NavLink to={page} className={({ isActive }) => `default-class ${isActive ? "relative after:absolute after:content-[''] after:bg-cream after:w-full after:h-[2px] after:rounded-3xl after:-bottom-2 after:left-0 after:transform after:scale-x-100 after:transition-transform after:duration-100" : 'after:scale-x-0'}`}> {title} </NavLink>
-        </li>
-    </>
-  )
-}
+const DataList =[
+  {
+    navPage : [ "/home", "/about", "work", "/contact" ],
+    navTitle : [ "/Home", "About", "Work", "Contact"],
+  },
+  {
+    footerTitle : [ "Instagram", "LinkedIn", "Github", "Lorem" ],
+    footerContact : [ "Email", "LinkedIn"],
+  }]
 
 function Layout() {
   return (
     <>
-      <div className='py-6 px-8 xs:px-12 s:flex s:justify-between'>
-        <span className='hidden s:block'>logo</span>
-        <ul className='flex justify-between font-normal tracking-widest text-lg xs:text-xl s:w-3/4'>
-          {/* <span className="block after:content-[''] after:bg-green-400 after:w-10 after:h-10"></span> */}
-          <NavComp title="/Home" page="/home"/>
-          <NavComp title="About" page="/about"/>
-          <NavComp title="Work" page="/work"/>
-          <NavComp title="Contact" page="/contact"/>
+      <div className='bg-blue-00 mx-auto py-6 m:py-10 xl:py-14 w-[16rem] xs:w-full xs:px-10 s:px-16 m:px-20 xs:flex xs:justify-between'>
+        <span className='hidden xs:block'>--------------- /Home</span>
+        <ul className='flex justify-between xs:gap-3 m:gap-4 tracking-widest font-normal text-sm xs:text-base'>
+          {DataList[0].navPage.map((page, index) => 
+            <li key={index}>
+              <NavLink to={page} className={({ isActive }) => isActive ? 'font-semibold xs:font-normal' : ''}> {DataList[0].navTitle[index]} </NavLink>
+            </li>
+          )}
         </ul>
       </div>
 
-      <div className='py-2 px-4'>
-      <Outlet/>
+      <div className='px-6 xs:px-10 s:px-16 m:px-20'>
+        <Outlet/>
       </div>
 
-      <span> Footer </span>
+    
+{/* // 'xs': '460px',
+//  's': '576px',
+//    'm': '768px',
+//   'l': '992px', --
+//    'xl': '1280px',
+//    'hd': '1680px', */}
+
+
+      <div className='bg-dark mt-10 py-10 px-6 text-light'>
+
+        <div className='flex flex-col gap-8 items-start'>
+          
+          {/* List */}
+          <div className='flex text-xs w-[14rem] justify-between'>
+            <ul className='flex flex-col gap-2'>
+              <li className='font-semibold text-base'> Sosmed </li>
+              {DataList[1].footerTitle.map((page, index) => 
+                <li key={index} className=''>{page}</li>
+              )}
+            </ul>
+            <ul className='flex flex-col gap-2'>
+              <li className='text-base font-semibold'>Contact</li>
+              {DataList[1].footerContact.map((page, index) => 
+                <li key={index}>{page}</li>
+              )}
+            </ul>
+          </div>
+
+          {/* Maps & Copyright */}
+          <div className='flex flex-col text-xs'>
+            <img src={Maps} alt="" className='w-11/12 block bg-red-700'/>
+            <span className='mt-3 self-start'> @Lorem</span>
+            <span className='self-start'> ridwanndwip </span>
+          </div>
+
+        </div>
+
+      </div>
     </>
   )
 }

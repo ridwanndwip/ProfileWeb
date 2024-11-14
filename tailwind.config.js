@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     screens: {
-      'xs': '420px',
+      'xs': '460px',
       's': '576px',
       'm': '768px',
       'l': '992px',
@@ -17,9 +17,6 @@ export default {
       colors: {
         'light': '#FAF6F0',
         'dark' : '#000000',
-      },
-      fontFamily: {
-        montserrat : ["Montserrat",'sans-serif'],
       },
     },
   },

@@ -18,6 +18,9 @@ export default {
         'light': '#FAF6F0',
         'dark' : '#000000',
       },
+      fontFamily:{
+        'MontserratAlternates' : ['"Montserrat Alternates"', 'sans-serif']
+      },
     },
   },
   plugins: [],
